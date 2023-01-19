@@ -38,3 +38,11 @@ jobs:
               - TBD
           draft: false
           prerelease: false
+  wait-for-template:
+    steps:
+      - name: Wait
+        run: |
+          until $(curl --output /dev/null --silent --head --fail https://github.com/piotrmiskiewicz/gactions/releases/download/${{ github.event.inputs.name }}/template.yaml); do
+            echo 'waiting...'
+            sleep 10
+          done
