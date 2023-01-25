@@ -38,6 +38,10 @@ jobs:
               - TBD
           draft: false
           prerelease: false
+      - name: Create release branch
+        run: |
+          git checkout -b ${{ github.event.inputs.name }}
+          git push
   wait-for-template:
     runs-on: ubuntu-latest
     steps:
