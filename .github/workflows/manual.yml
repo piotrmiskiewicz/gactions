@@ -41,7 +41,7 @@ jobs:
       - name: Create release branch
         run: |
           git checkout -b ${{ github.event.inputs.name }}
-          git push
+          git push --set-upstream origin ${{ github.event.inputs.name }}
   wait-for-template:
     runs-on: ubuntu-latest
     steps:
