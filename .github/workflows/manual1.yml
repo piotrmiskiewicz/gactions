@@ -34,7 +34,7 @@ jobs:
         found=false
         while [ $found == "false" ]
         do
-          found=$(skopeo list-tags docker://europe-docker.pkg.dev/kyma-project/prod/unsigned/component-descriptors/kyma.project.io/module/btp-operator | jq '.Tags|any(. == "${github.event.inputs.name}")')
+          found=$(skopeo list-tags docker://europe-docker.pkg.dev/kyma-project/prod/unsigned/component-descriptors/kyma.project.io/module/btp-operator | jq '.Tags|any(. == "${{ github.event.inputs.name }}")')
           sleep 10
           echo "..."
         done
